@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<testsuite name="MAQ-XX55">
+<details><![CDATA[Plan de pruebas de la peticion MAQ-XX55]]></details>
+	<testsuite name="ConsultarInventarioDispositivo">
+	<details><![CDATA[Plan de pruebas de la operacion ConsultarInventarioDispositivo]]></details>
+		<testcase name="OP_01-F-001 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-01</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO y que devuelve resultados</br>PASO.2 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla D_MAQUETA y que se obtienen resultados. </br>PASO.3 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que se obtienen resultados. </br>PASO.4 Como se han obtenido resultados con valores para la columna D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO tanto 'caj' como 'bal' continuamos por el paso 5</br>PASO.5 Comprobar que para cada registro obtenido en el paso 2 con el valor 'caj' en el campo D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO se almacena el valor de su columna D_DISPOSITIVO.COD_N_NUM_SALIDA en la variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion</br>PASO.6 Comprobar que para cada registro obtenido en el paso 2 con el valor 'bal' revisamos la query que se realiza en el paso 6. Como se obtienen resultados comprobamos que se informa correctamente la lista variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion con los valores obtenidos</br>PASO.7 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-01]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-002 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada excepto la paginación]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-02</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la traza de entrada no aparecen los parámetros locales ya que en el DTAN indica que no se tendrán en cuenta</br>PASO.2 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO. Se revisa la consulta. Como la consulta devuelve resultados continuamos por el paso siguiente</br>PASO.3 Comprobamos la siguiente consulta que se realiza sobre D_MAQUETA con los datos obtenidos en el paso 2 y que devuelve resultados</br>PASO.4 Comprobamos que se realiza la siguiente consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO con los datos obtenidos en el paso 2 y que devuelve resultados</br>PASO.5 Como el valor de la columna COD_V_TIPO_DISPOSITIVO es 'caj' comprobamos que se informa la lista [ListaInventario][ListaArtefactos][Artefacto]Ubicacion con los valores del campo D_DISPOSITIVO.COD_N_NUM_SALIDA para cada uno de los registros obtenidos en el paso 2</br>PASO.6 Pasamos al paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-02]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-003 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada excepto la paginación]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-03</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la traza de entrada no aparecen los parámetros locales ya que en el DTAN indica que no se tendrán en cuenta</br>PASO.2 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO. Se revisa la consulta. Como la consulta devuelve resultados continuamos por el paso siguiente</br>PASO.3 Comprobamos la siguiente consulta que se realiza sobre D_MAQUETA con los datos obtenidos en el paso 2. Comprobamos que devuelve resultados</br>PASO.4 Comprobamos que se realiza la siguiente consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO con los datos obtenidos en el paso 2 y que devuelve resultados</br>PASO.5 Como el valor de la columna COD_V_TIPO_DISPOSITIVO es 'bal' continuamos por el paso 6</br>PASO.6 Revisamos la query que se realiza en el paso 6. Como se obtienen resultados comprobamos que se informa correctamente la lista variable  [ListaInventario][ListaArtefactos][Artefacto]Ubicación con los valores obtenidos</br>PASO.7 Continuamos por el paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-03]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-004 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-04</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO y que devuelve resultados</br>PASO.2 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla D_MAQUETA y que se obtienen resultados. </br>PASO.3 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que se obtienen resultados. </br>PASO.4 Como se han obtenido resultados con valores para la columna D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO tanto 'caj' como 'bal' continuamos por el paso 5</br>PASO.5 Comprobar que para cada registro obtenido en el paso 2 con el valor 'caj' en el campo D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO se almacena el valor de su columna D_DISPOSITIVO.COD_N_NUM_SALIDA en la variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion</br>PASO.6 Comprobar que para cada registro obtenido en el paso 2 con el valor 'bal' revisamos la query que se realiza en el paso 6. Como se obtienen resultados comprobamos que se informa correctamente la lista variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion con los valores obtenidos</br>PASO.7 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-04]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-005 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan sólo el parámetro "Centro"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-05</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que no da error</br>PASO.2 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO. Asegurarnos de que aquellos campos que no hayan venido informados en la entrada no serán considerados en la búsqueda de registros. </br>La consulta no devuelve datos</br>PASO.3 Como la consulta no devuelve datos comprobar que se finaliza la operación correctamente sin elementos en la lista de salida</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-05]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-006 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan sólo el parámetro "Tipo"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-06</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que da error por el rango del parámetro</br>PASO.2 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO. Asegurarnos de que aquellos campos que no hayan venido informados en la entrada no serán considerados en la búsqueda de registros. </br>La consulta devuelve datos</br>PASO.3 Comprobamos que se realiza la consulta sobre D_MAQUETA y que devuelve resultados</br>PASO.4 Comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que devuelve resultados</br>PASO.5 Como el valor de la columna COD_V_TIPO_DISPOSITIVO no es ni 'caj' ni 'bal' finalizamos la operación con la variable  [ListaInventario][ListaArtefactos][Artefacto]Ubicacion sin informar.</br>PASO.6 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-06]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-007 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan sólo el parámetro "Subtipo"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-07</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en no da error</br>PASO.2 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO. Asegurarnos de que aquellos campos que no hayan venido informados en la entrada no serán considerados en la búsqueda de registros. </br>La consulta devuelve datos</br>PASO.3 Comprobamos que se realiza la consulta sobre D_MAQUETA y que devuelve resultados</br>PASO.4 Comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que devuelve resultados</br>PASO.5 Como se han obtenido resultados con valores para la columna D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO tanto 'caj' como 'bal' continuamos por el paso 5</br>PASO.6 Comprobar que para cada registro obtenido en el paso 2 con el valor 'caj' en el campo D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO se almacena el valor de su columna D_DISPOSITIVO.COD_N_NUM_SALIDA en la variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion</br>PASO.7 Comprobar que para cada registro obtenido en el paso 2 con el valor 'bal' revisamos la query que se realiza en el paso 6. Como se obtienen resultados comprobamos que se informa correctamente la lista variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion con los valores obtenidos</br>PASO.8 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-07]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-008 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: No se informan ninguno de los parámetros "Entorno, Centro, Tipo ni Subtipo"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-08</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que al no informar esos parámetros se produce errorNoControlado</br>PASO.2 Comprobar la traza del error y que los parámetros de entrada aparecen tal y como se insertan en el Soap, o con el valor por defecto si esque tienen y no se ha informado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-08]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-009 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-09</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se intenta realizar la consulta sobre la tabla D_DISPOSITIVO y se produce un errorBBDD</br>PASO.2 Comprobar la traza del error y la traza de salida. Comprobar también que los parámetros de entrada aparecen tal y como se insertan en el Soap, o con el valor por defecto si esque tienen y no se ha informado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-09]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-010 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-10</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se realizar la consulta sobre la tabla D_DISPOSITIVO</br>PASO.2 Continuamos y se intenta realizar la consulta sobre la tabla D_MAQUETA y se produce errorBBDD</br>PASO.3 Comprobamos que la traza del error y la de salida son correctas.</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-10]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-011 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-11</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se realizar la consulta sobre la tabla D_DISPOSITIVO</br>PASO.2 Se realiza la consulta sobre la tabla D_MAQUETA</br>PASO.3 Se intenta realizar la consulta sobre S_MAQUETA_SINCRO_DISPOSITIVO y se produce errorBBDD</br>PASO.4 Comprobamos que la traza del error y la de salida son correctas.</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-11]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-012 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-12</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se realizar la consulta sobre la tabla D_DISPOSITIVO</br>PASO.2 Se realiza la consulta sobre la tabla D_MAQUETA</br>PASO.3 Se realiza la consulta sobre S_MAQUETA_SINCRO_DISPOSITIVO</br>PASO.4 Se intenta realizar la consulta sobre D_TPV y se produce errorBBDD</br>PASO.3 Comprobamos que la traza del error y la de salida son correctas.</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-12]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-013 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-13</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO y que devuelve varios resultados</br>PASO.2 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla D_MAQUETA y que se obtienen varios resultados. </br>PASO.3 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que se obtienen varios resultados. </br>PASO.4 Como se han obtenido resultados con valores para la columna D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO tanto 'caj' como 'bal' continuamos por el paso 5</br>PASO.5 Comprobar que para cada registro obtenido en el paso 2 con el valor 'caj' en el campo D_DISPOSITIVO.COD_V_TIPO_DISPOSITIVO se almacena el valor de su columna D_DISPOSITIVO.COD_N_NUM_SALIDA en la variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion</br>PASO.6 Comprobar que para cada registro obtenido en el paso 2 con el valor 'bal' revisamos la query que se realiza en el paso 6. Como se obtienen resultados comprobamos que se informa correctamente la lista variable [ListaInventario][ListaArtefactos][Artefacto]Ubicacion con los valores obtenidos</br>PASO.7 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-13]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-014 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "Centro"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-14</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que se realiza la consulta sobre la tabla D_DISPOSITIVO y que devuelve resultados</br>PASO.2 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla D_MAQUETA y que NO se obtienen resultados. No se produce error, continuaremos por el siguiente paso.</br>PASO.3 Comprobamos que para cada registro obtenido en el paso 2 comprobamos que se realiza la consulta sobre la tabla S_MAQUETA_SINCRO_DISPOSITIVO y que NO se obtienen resultados. No se produce error, continuaremos por el siguiente paso.</br>PASO.4 Como el valor de la columna COD_V_TIPO_DISPOSITIVO no es ni 'caj' ni 'bal' finalizamos la operación con la variable  [ListaInventario][ListaArtefactos][Artefacto]Ubicacion sin informar.</br>PASO.5 continuamos por el último paso 7 y comprobamos que la lista de salida está informada correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-14]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-015 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-15</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que pagina correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-15]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-016 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-16</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que pagina correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-16]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-017 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de tipo string vacíos]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-17</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que la consulta que se realiza sobre D_DISPOSITIVO no devuelve resultados</br>PASO.2 Comprobar que la lista de salida no contiene elementos</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-17]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-018 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de tipo string blancos]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-18</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que la consulta que se realiza sobre D_DISPOSITIVO no devuelve resultados</br>PASO.2 Comprobar que la lista de salida no contiene elementos</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-18]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-019 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-19</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-19]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-020 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-20</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-20]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-021 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-21</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-21]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-022 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-22</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-22]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-023 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-23</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-23]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-024 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-24</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-24]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-025 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-25</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-25]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-026 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-26</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-26]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-027 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-27</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-27]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-028 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-28</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-28]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_01-F-029 - ConsultarInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informa sólo el parámetro "IdUbicacion y Entorno"]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_01-BaseEntrada-29</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Se comprueba que en la salida se devuelven varias listas</br>PASO.2 Se comprueba que ordena correctamente por el parámetro indicado</p>]]></actions>
+				<expectedresults><![CDATA[OP_01-BaseSalida-29]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+	</testsuite>
+	<testsuite name="ConsultarDatosDispositivo">
+	<details><![CDATA[Plan de pruebas de la operacion ConsultarDatosDispositivo]]></details>
+		<testcase name="OP_02-F-001 - ConsultarDatosDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se realiza una consulta informando el parámetro de entrada obligatorio nombreDispositivo de la ListaDispositivo]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_02-BaseEntrada-01</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p>Se realiza una consulta informando el parámetro de entrada obligatorio nombreDispositivo de la ListaDispositivo</p>]]></actions>
+				<expectedresults><![CDATA[OP_02-BaseSalida-01]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+	</testsuite>
+	<testsuite name="CrearInventarioDispositivo">
+	<details><![CDATA[Plan de pruebas de la operacion CrearInventarioDispositivo]]></details>
+		<testcase name="OP_03-F-001 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-01</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisamos la traza de entrada de la operación y comprobamos que los parámetros localeLanguage, localeCountry y localeVariant no aparecen, ya que el DTAN indica que no se tienen en cuenta en esta operación.</br>PASO.2 Comprobamos que el insert que se realiza sobre D_SISTEMA es correcto y que se inserta un nuevo registro correctamente en la BBDD (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.3 Comprobamos que se realizan correctamente las select sobre la tabla D_MAQUETA y que devuelven 1 registro cada una. Con los valores recuperados se rellenan las variables codMaquetaInstalada y codMaquetaConfigurada.</br>PASO.4 Comprobamos que se realiza correctamente el insert sobre la tabla D_DISPOSITIVO y que se inserta un nuevo registro en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.5 Como el valor de tipoDispositivo es caj continuamos por el paso 4. Comprobamos el insert que se realiza sobre la tabla D_TPV y que se inserta un registro correctamente en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.6 Como el valor de tipoDispositivo es caj continuamos por el paso 5. Comprobamos el insert que se realiza sobre la tabla D_CAJA y que se inserta un registro correctamente en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.7 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-01]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-002 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-02</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que el insert que se realiza sobre D_SISTEMA es correcto y que se inserta un nuevo registro correctamente en la BBDD (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.2 Comprobamos que se realizan correctamente las select sobre la tabla D_MAQUETA y que devuelven 1 registro cada una. Con los valores recuperados se rellenan las variables codMaquetaInstalada y codMaquetaConfigurada.</br>PASO.3 Comprobamos que se realiza correctamente el insert sobre la tabla D_DISPOSITIVO y que se inserta un nuevo registro en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.4 Como el valor de tipoDispositivo es bal continuamos por el paso 4. Comprobamos el insert que se realiza sobre la tabla D_TPV y que se inserta un registro correctamente en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.5 Como el valor de tipoDispositivo es bal continuamos por el paso 5. Comprobamos el insert que se realiza sobre la tabla D_BALANZA y que se inserta un registro correctamente en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.6 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-02]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-003 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-03</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que el insert que se realiza sobre D_SISTEMA es correcto y que se inserta un nuevo registro correctamente en la BBDD (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.2 Comprobamos que se realizan correctamente las select sobre la tabla D_MAQUETA y que devuelven 1 registro cada una. Con los valores recuperados se rellenan las variables codMaquetaInstalada y codMaquetaConfigurada.</br>PASO.3 Comprobamos que se realiza correctamente el insert sobre la tabla D_DISPOSITIVO y que se inserta un nuevo registro en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.4 Como el valor de tipoDispositivo es thl continuamos por el paso 4. Comprobamos el insert que se realiza sobre la tabla D_THIN_CLIENT y que se inserta un registro correctamente en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.5 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-03]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-004 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-04</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que el insert que se realiza sobre D_SISTEMA es correcto y que se inserta un nuevo registro correctamente en la BBDD (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.2 Comprobamos que se realizan correctamente las select sobre la tabla D_MAQUETA y que devuelven 1 registro cada una. Con los valores recuperados se rellenan las variables codMaquetaInstalada y codMaquetaConfigurada.</br>PASO.3 Comprobamos que se realiza correctamente el insert sobre la tabla D_DISPOSITIVO y que se inserta un nuevo registro en BBDD. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.4 Como el valor de tipoDispositivo no ni 'caj', 'bal', ni 'thl' continuamos por el paso 6.</br>PASO.5 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-04]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-005 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-05</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobamos que se realiza correctamente el insert sobre D_SISTEMA (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.2 Como ninguna de las dos consultas sobre D_MAQUETA devuelve resultados se informan a null las variables codMaquetaInstalada y codMaquetaConfigurada</br>PASO.3 Comprobamos que se realiza el insert sobre D_DISPOSITIVO correctamente. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.4 Comprobar que se realiza correctamente la inserción sobre D_TPV</br>PASO.5 Comprobamos que se realiza correctamente el insert que se realiza sobre la tabla D_CAJA. (el valor de COD_N_SISTEMA variará porque es autogenerado)</br>PASO.6 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-05]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-006 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-06</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta realizar el insert sobre D_BALANZA pero se produce un errorBBDD</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.3 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</br>codError = app.error.errorbbdd</br>desError = Error ejecutando una operación sobre base de datos.</br>PASO.4 Comprobar que se hace rollback de todo</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-06]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-007 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-07</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza el insert sobre la tabla D_SISTEMA.</br>PASO.2 Comprobar que se intenta realizar la select sobre D_MAQUETA pero se produce un errorBBDD</br>PASO.3 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.4 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-07]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-008 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-08</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza el insert sobre la tabla D_SISTEMA.</br>PASO.2 Comprobar que se intenta realizar el insert sobre D_DISPOSITIVO pero se produce un errorBBDD</br>PASO.3 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.4 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</br>codError = app.error.errorbbdd</br>desError = Error ejecutando una operación sobre base de datos.</br>PASO.5 Comprobar que se hace rollback de los cambios</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-08]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-009 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-09</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta realizar el insert sobre D_TPV pero se produce un errorBBDD</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.3 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-09]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-010 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-10</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta realizar el insert sobre D_THIN_CLIENT pero se produce un errorBBDD</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.3 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-10]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-011 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-11</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta realizar el insert sobre D_CAJA pero se produce un errorBBDD</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.3 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-11]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-012 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-12</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta hacer el insert sobre la tabla D_SISTEMA pero se produce errorBBDD.</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.3 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-12]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-013 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan los string opcionales con cadena vacía]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-13</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza el insert sobre la tabla D_SISTEMA</br>PASO.2 Las consultas sobre D_MAQUETA no devuelven resultados</br>PASO.3 Comprobar que se realiza el insert sobre D_DISPOSITIVO con los valores vacíos y no se produce error</br>PASO.4 Comprobar que se realiza el insert sobre D_TPV</br>PASO.5 Comprobar que se realiza el insert sobre D_CAJA</br>PASO.6 Comprobar que los parámetros de salida son correctos</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-13]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-014 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan los string opcionales con espacios en blanco]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-14</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza el insert sobre la tabla D_SISTEMA</br>PASO.2 Las consultas sobre D_MAQUETA no devuelven resultados</br>PASO.3 Comprobar que se intenta realizar el insert sobre D_DISPOSITIVO con los espacios en blanco y se produce errorBBDD</br>PASO.4 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.5 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-14]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_03-F-015 - CrearInventarioDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los parámetros de entrada obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-15</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se produce un errorNoControlado</br>PASO.2 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen de la misma manera que se han informado</br>PASO.5 Comprobar que la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_03-BaseSalida-15]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+	</testsuite>
+	<testsuite name="ModificarUbicacionDispositivo">
+	<details><![CDATA[Plan de pruebas de la operacion ModificarUbicacionDispositivo]]></details>
+		<testcase name="OP_04-F-001 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros de entrada:]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-01</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la traza de entrada del ws y comprobar que no aparecen los parametros multilenguaje ya que el DTAN indica que no se deben tener en cuenta</br>PASO.2 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.3 Como el valor de codTipoDispositivoTienda es 'caj' continuamos por el paso 3</br>PASO.4 Comprobamos el update que se realiza sobre la tabla D_DISPOSITIVO y comprobamos que se modifica correctamente en bbdd</br>PASO.5 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-01]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-002 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan codTipoDispositivoTienda con 'bal':]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-02</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.2 Como el valor de codTipoDispositivoTienda es 'bal' continuamos por el paso 4</br>PASO.3 Comprobamos que en la tabla S_UBICACION_TPV existe un registro que cumple la condición y por tanto se modifica.</br>PASO.4 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-02]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-003 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan codTipoDispositivoTienda con 'bal':]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-03</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.2 Como el valor de codTipoDispositivoTienda es 'bal' continuamos por el paso 4</br>PASO.3 Comprobamos que en la tabla S_UBICACION_TPV NO existe un registro que cumple la condición y por tanto se inserta. (El valor de ID_UBICACION_TPV es autogenerado por lo que variará)</br>PASO.4 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-03]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-004 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan codTipoDispositivoTienda con 'bal':]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-04</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que No devuelve registros.</br>PASO.2 Comprobar que se lanza ErrorNoExisteRegistro</br>PASO.3 Comprobar que la traza del error es correcta y que los parámetros de entrada aparecen igual que se han introducido</br>PASO.4 Comprobar la traza de salida y que los parámetros de salida se informan correctamente.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-04]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-005 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan los string opcionales vacíos:]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-05</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.2 Como el valor de codTipoDispositivoTienda es 'caj' continuamos por el paso 3</br>PASO.3 Comprobamos que se realiza el update correctamente sobre D_DISPOSITIVO y que se actualizan los campos a vacíos.</br>PASO.4 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-05]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-006 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan los string opcionales con espacios en blanco:]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-06</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.2 Como el valor de codTipoDispositivoTienda es 'caj' continuamos por el paso 3</br>PASO.3 Comprobamos que se realiza el update correctamente sobre D_DISPOSITIVO y que se actualizan los campos con espacios en blanco.</br>PASO.4 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-06]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-007 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan codTipoDispositivoTienda con 'bal':]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-07</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se intenta realizar la consulta sobre D_DISPOSITIVO y se produce un errorBBDD</br>PASO.2 Comprobar la traza del error y que los parámetros de entrada aparecen igual que se han introducido</br>PASO.3 Comprobar la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-07]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-008 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan todos los parámetros menos los locales:]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-08</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza la consulta sobre D_DISPOSITIVO</br>PASO.2 Comprobar que se intenta realizar el update sobre D_DISPOSITIVO pero se produce un errorBBDD</br>PASO.3 Comprobar la traza del error y que los parámetros de entrada aparecen igual que se han introducido</br>PASO.4 Comprobar la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-08]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-009 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan codTipoDispositivoTienda con 'bal':]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-09</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que se realiza la consulta sobre D_DISPOSITIVO</br>PASO.2 Comprobar que se encuantran registros en S_UBICACION_TPV y por tanto se intenta realizar el update pero se produce errorBBDD</br>PASO.3 Comprobar la traza del error y que los parámetros de entrada aparecen igual que se han introducido</br>PASO.4 Comprobar la traza de salida y que los parámetros de salida se informan correctamente</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-09]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-010 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-10</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Revisar la consulta que se realiza sobre D_DISPOSITIVO y comprobar que devuelve un registro.</br>PASO.2 Como el valor de codTipoDispositivoTienda es 'caj' continuamos por el paso 3</br>PASO.3 Comprobamos que se realiza el update correctamente sobre D_DISPOSITIVO y que se actualizan los campos no informados como nulos</br>PASO.4 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-10]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+		<testcase name="OP_04-F-011 - ModificarUbicacionDispositivo">
+			<summary><![CDATA[REQ-FUN-0001: Se informan solo los obligatorios]]></summary>
+			<preconditions><![CDATA[<p>Cargar juego de datos del fichero INCONF-DAT-ED_InventarioDispositivo_v1_0_4.sql</br>Parámetros de entrada: OP_03-BaseEntrada-01</p>]]></preconditions>
+			<execution_type><![CDATA[1]]></execution_type>
+			<steps>
+				<step>
+				<step_number><![CDATA[1]]></step_number>
+				<actions><![CDATA[<p></br>PASO.1 Comprobar que la consulta que se realiza sobre D_DISPOSITIVO devuelve 1 resultado</br>PASO.2 Como el valor de codTipoDispositivoTienda no es ni 'caj' ni 'bal' finalizaremos la operación sin errores.</br>PASO.3 Comprobar que se informan los parámetros de salida de forma correcta.</p>]]></actions>
+				<expectedresults><![CDATA[OP_04-BaseSalida-11]]></expectedresults>
+				<execution_type><![CDATA[1]]></execution_type>
+				</step>
+			</steps>
+		</testcase>
+	</testsuite>
+</testsuite>
